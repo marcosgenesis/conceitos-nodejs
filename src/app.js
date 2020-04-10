@@ -50,8 +50,8 @@ app.post("/repositories/:id/like", (request, response) => {
  const { id } = request.params;
  const repositoryId = repositories.findIndex(repository=>repository.id == id)
  if(repositoryId === -1) return response.status(400).send()
- const likes = repositories[repositoryId].likes += 1;
- return response.json({likes})
+repositories[repositoryId].likes += 1;
+ return response.json(repositories[repositoryId])
 });
 
 module.exports = app;
